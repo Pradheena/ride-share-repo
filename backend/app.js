@@ -12,12 +12,15 @@ const rideRoutes = require('./routes/ride.routes');
 
 connectToDb();
 
-app.use(cors());
+// ✅ CORS setup
+app.use(cors({
+  origin: 'https://ride-share-rideon-frontend.onrender.com',
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
-
 
 app.get('/', (req, res) => {
     res.send('Hello World');
@@ -27,8 +30,5 @@ app.use('/users', userRoutes);
 app.use('/captains', captainRoutes);
 app.use('/maps', mapsRoutes);
 app.use('/rides', rideRoutes);
-
-
-
 
 module.exports = app;
