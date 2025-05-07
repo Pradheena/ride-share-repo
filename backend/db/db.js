@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DB_CONNECT = 'mongodb+srv://root:0412@cluster0.gvcalgg.mongodb.net/uber-video?retryWrites=true&w=majority'; // Use 127.0.0.1 instead of 0.0.0.0 for reliability
+const DB_CONNECT = process.env.MONGO_URI;; // Use 127.0.0.1 instead of 0.0.0.0 for reliability
 
  function connectToDb() {
     try {
