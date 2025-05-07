@@ -18,6 +18,7 @@ router.post('/register', [
 router.post('/login', [
     body('email').isEmail().withMessage("Invalid Email"),
     body('password').exists().withMessage('Password is required') // Changed from length check
+    console.log("Validation errors:", errors.array());
 ], userController.loginUser);
 
 router.get('/profile', authMiddleware.authUser, userController.getUserProfile);
